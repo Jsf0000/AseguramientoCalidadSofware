@@ -25,7 +25,6 @@ public class Video {
         	if(camera.read(frame)){
         		open = true;
         		frames.add(new Frame(frame.clone()));
-        	     //System.out.println(frame.dump());
         	}
          }
 	  }
