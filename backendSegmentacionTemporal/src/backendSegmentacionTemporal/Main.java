@@ -35,6 +35,10 @@ public class Main {
 	    mat.get(0, 0, data);
 
 	    return image;
+	    
+	    
+	    
+	    
 	}
     
 
@@ -45,40 +49,54 @@ public class Main {
 		//variables
 
 		 
-		Video video = new Video();
     	//Configurar la ventana 
-       // JFrame jframe = new JFrame("Imagen");
-        //jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //JLabel vidpanel = new JLabel();
-        //jframe.setContentPane(vidpanel);
-        //jframe.setVisible(true);
-        //jframe.setSize(640,360);
-		 //obtener el video, algoritmo 1
+		
+        JFrame jframe = new JFrame("Imagen");
+        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JLabel vidpanel = new JLabel();
+        jframe.setContentPane(vidpanel);
+        jframe.setVisible(true);
+        jframe.setSize(640,360);
+        
+        //----------Algoritmo-1--------------------
+		
+/*      Video video = new Video();
 		video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
-		// Poner frames en una lista, algoritmo 1
 		video.setFrames();
-		// normalizar H, algoritmo 1
-		//video.getListFrames().elementAt(0).normalizeH();
-		//poner calcular el histograma para el frame
-		//video.getListFrames().elementAt(0).setNormHist();
-		//video.getListFrames().elementAt(2).setNormHist();
-
-		//obtener una imagen del histograma normalizado
-		//video.getListFrames().elementAt(0).hist.imageHist();
-
-		Cut cuts = new Cut();
-		//ejemple del calculo de battacharyya 
-		//System.out.println(cuts.getBhattacharyya(video.getListFrames().elementAt(0).hist.normHist(), video.getListFrames().elementAt(1).hist.normHist()));
-		// se realiza el arreglo de disimilitud
-		cuts.setArrayDissimilarity(video.getListFrames());
-		// Se imprime el arreglo
-		for(int i =0; i< cuts.getArrayDissimilarity().size();i++){
-			System.out.println(i+1+". "+cuts.getArrayDissimilarity().elementAt(i));
-		}
-  
-        //ImageIcon image = new ImageIcon(createAwtImage(video.getListFrames().elementAt(0).hist.imageHist()));
-       //vidpanel.setIcon(image);
-
+        ImageIcon image = new ImageIcon(createAwtImage(video.getListFrames().elementAt(0).normalizeH()));
+        vidpanel.setIcon(image);*/
+        
+        //-----------Algoritmo-2--------------------
+        
+/*		Video video = new Video();
+		video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+		video.setFrames();
+		video.getListFrames().elementAt(0).setNormHist();
+        ImageIcon image = new ImageIcon(createAwtImage(video.getListFrames().elementAt(0).hist.imageHist()));
+        vidpanel.setIcon(image);*/
+        
+        
+        //-----------Algoritmo-3---------------------
+        
+/*    	Video video = new Video();
+    	Cut  cuts  =   new Cut();
+    	video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+    	video.setFrames();
+    	video.getListFrames().elementAt(0).setNormHist();
+    	video.getListFrames().elementAt(1).setNormHist();
+    	System.out.println(cuts.getBhattacharyya(video.getListFrames().elementAt(0).hist.normHist(), video.getListFrames().elementAt(1).hist.normHist()));
+        */
+        
+        
+        //-----------Algoritmo-4-------------------------
+        
+/*    	Video video = new Video();
+    	Cut  cuts  =   new Cut();
+    	video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+    	video.setFrames();
+    	cuts.setArrayDissimilarity(video.getListFrames());
+    	System.out.println(cuts.getArrayDissimilarity().toString());*/
+        
 
 		
 	 }
