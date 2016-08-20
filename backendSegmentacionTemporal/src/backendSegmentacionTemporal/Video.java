@@ -13,11 +13,14 @@ public class Video {
 	
 	public void setVideo(String dir){
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		System.loadLibrary("opencv_ffmpeg2412_64");
         camera = new VideoCapture(dir);		
+        System.out.println(camera.isOpened());
 	  }
 	
 	public void setFrames(){
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		System.loadLibrary("opencv_ffmpeg2412_64");
         Mat frame = new Mat();
         boolean open = true;
         while(open){

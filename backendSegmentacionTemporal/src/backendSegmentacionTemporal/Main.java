@@ -19,6 +19,7 @@ public class Main {
 
 	public static BufferedImage createAwtImage(Mat mat) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		System.loadLibrary("opencv_ffmpeg2412_64");
 	    int type = 0;
 	    if (mat.channels() == 1) {
 	        type = BufferedImage.TYPE_BYTE_GRAY;
@@ -60,8 +61,8 @@ public class Main {
         
         //----------Algoritmo-1--------------------
 		
-/*      Video video = new Video();
-		video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+/*        Video video = new Video();
+		video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
 		video.setFrames();
         ImageIcon image = new ImageIcon(createAwtImage(video.getListFrames().elementAt(0).normalizeH()));
         vidpanel.setIcon(image);*/
@@ -69,7 +70,7 @@ public class Main {
         //-----------Algoritmo-2--------------------
         
 /*		Video video = new Video();
-		video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+		video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
 		video.setFrames();
 		video.getListFrames().elementAt(0).setNormHist();
         ImageIcon image = new ImageIcon(createAwtImage(video.getListFrames().elementAt(0).hist.imageHist()));
@@ -80,25 +81,23 @@ public class Main {
         
 /*    	Video video = new Video();
     	Cut  cuts  =   new Cut();
-    	video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+    	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
     	video.setFrames();
     	video.getListFrames().elementAt(0).setNormHist();
     	video.getListFrames().elementAt(1).setNormHist();
     	System.out.println(cuts.getBhattacharyya(video.getListFrames().elementAt(0).hist.normHist(), video.getListFrames().elementAt(1).hist.normHist()));
         */
-        
-        
+                
         //-----------Algoritmo-4-------------------------
         
-/*    	Video video = new Video();
+ /*   	Video video = new Video();
     	Cut  cuts  =   new Cut();
-    	video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+    	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
     	video.setFrames();
     	cuts.setArrayDissimilarity(video.getListFrames());
-    	System.out.println(cuts.getArrayDissimilarity().toString());*/
+    	System.out.println(cuts.getArrayDissimilarity().toString());
         
-
-		
+		*/
 	 }
 	
 	

@@ -9,17 +9,17 @@ public class VideoTest {
 
 	@Test
 	//prueba al cargar el video y dividirlo en frames algoritmo 1
-/*	public void setVideoTest() {
+	public void setVideoTest() {
 		Video video = new Video();
-		video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+		video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
 		video.setFrames();
 		video.getListFrames().elementAt(0).normalizeH();
-
-	}*/
+	}
+	
 // prueba de los histogramas
 /*public void  histFrameTest(){
 		Video video = new Video();
-		video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+		video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
 		video.setFrames();
 		video.getListFrames().elementAt(0).setNormHist();
 		video.getListFrames().elementAt(0).hist.normHist();
@@ -28,7 +28,7 @@ public class VideoTest {
 /*public void BhattacharyyaTest(){
 	Video video = new Video();
 	Cut  cuts  =   new Cut();
-	video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
 	video.setFrames();
 	video.getListFrames().elementAt(0).setNormHist();
 	video.getListFrames().elementAt(1).setNormHist();
@@ -36,14 +36,14 @@ public class VideoTest {
 }*/
 
 //prueba del arreglo de bhattacharyya
-public void arrayBhattacharyyaTest(){
+/*public void arrayBhattacharyyaTest(){
 	Video video = new Video();
 	Cut  cuts  =   new Cut();
-	video.setVideo("C:/Proyecto1Lenguajes/cut1_360_processed_LAB_2iter.avi");
+	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
 	video.setFrames();
 	cuts.setArrayDissimilarity(video.getListFrames());
 	System.out.println(cuts.getArrayDissimilarity().toString());
-}
+}*/
 	
 	
 	
