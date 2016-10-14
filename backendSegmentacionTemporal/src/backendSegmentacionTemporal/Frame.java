@@ -8,29 +8,37 @@ import org.opencv.imgproc.Imgproc;
 
 public class Frame {
     private Mat frame      = new Mat();
-    private Mat frameHSV   = new Mat();
+    private Mat frameHsv   = new Mat();
     private Mat frameHNorm = new Mat();
     private Vector <Mat> channels = new Vector<Mat>(3);
     Histogram hist = new Histogram();
     
-    Frame(Mat pFrame){
-    	frame = pFrame;
+    Frame(Mat pframe){
+    	frame = pframe;
     }
     
-    public Mat convertHSV(){
-    	Imgproc.cvtColor(frame, frameHSV, Imgproc.COLOR_RGB2HSV);
-    	return frameHSV;
+    public Mat getFramehsv(){
+    	return frameHsv;
+    }
+    
+    public Mat getFrameHNorm(){
+    	return frameHNorm;
+    }
+    
+    public Mat convertHsv(){
+    	Imgproc.cvtColor(frame, frameHsv, Imgproc.COLOR_RGB2HSV);
+    	return frameHsv;
     }
     
     public Vector<Mat> convertChannels(){
-    	convertHSV();
-    	org.opencv.core.Core.split(frameHSV,channels);
+    	convertHsv();
+    	org.opencv.core.Core.split(frameHsv,channels);
     	return channels;
     }
 	
     public Mat normalizeH(){
     	convertChannels();
-        org.opencv.core.Core.normalize(channels.firstElement(),frameHNorm, 0.0, 255.0,Core.NORM_MINMAX);
+        org.opencv.core.Core.normalize(channels.elementAt(0),frameHNorm, 0.0, 255.0,Core.NORM_MINMAX);
         return frameHNorm;
     }
     
@@ -40,7 +48,7 @@ public class Frame {
     
     public void setNormHist(){
     	normalizeH();
-    	hist.setFrameNorm(frameHNorm);
+    	hist.setFrameNorm(frameHsv);
     }
         
 }

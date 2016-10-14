@@ -1,5 +1,6 @@
 package backendSegmentacionTemporal;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import org.opencv.core.Core;
@@ -12,40 +13,65 @@ import org.opencv.imgproc.Imgproc;
 
 public class Histogram {
     private Mat histH      = new Mat();
-    private java.util.List<Mat> matList = new LinkedList<Mat>();
-    private MatOfFloat range =new MatOfFloat(0,256);
-    private MatOfInt histSize = new MatOfInt(255);
-    private Mat histImage = Mat.zeros( 100, (int)histSize.get(0, 0)[0], CvType.CV_8UC1);
+    private Mat histN      = new Mat();
+    private Mat frameHNorm  = new Mat();
+   
+    private ArrayList <Mat> matList = new ArrayList <Mat>();
+    //private MatOfFloat range =new MatOfFloat(0f,256f);
+    //private MatOfInt histSize = new MatOfInt(255);
+    MatOfFloat ranges =  new MatOfFloat(0f,256f );
+
+    MatOfInt histSize = new MatOfInt(256);
+  
+
 
     
     public Mat createHist(){
-        Imgproc.calcHist(matList,new MatOfInt(0), new Mat(), histH, histSize, range);
+    	Imgproc.calcHist(matList,new MatOfInt(0), new Mat(), histH, histSize, ranges,false);
+    	histN = histH.clone();
         return histH;
     }
+    
+/*    public Mat normHist(){
+    	createHist();
+    	System.out.println(histH.dump());
+       //Core.normalize(histH, histHN, 1, histImage.rows() , Core.NORM_MINMAX, -1, new Mat() ); 
+        Core.normalize(histH, histHN, 0,1 , Core.NORM_MINMAX, -1,new Mat() );  
+        System.out.println(sumaHist());
+        return histHN;
+    }*/
+    
     
     public Mat normHist(){
     	createHist();
-        Core.normalize(histH, histH, 1, histImage.rows() , Core.NORM_MINMAX, -1, new Mat() );   
-        return histH;
-    }
-    
-    public Mat imageHist(){
-    	normHist();
-    	for( int j = 0; j < (int)histSize.get(0, 0)[0]; j++ )
-        {                   
-                Core.line(
-                        histImage,
-                        new org.opencv.core.Point( j, histImage.rows() ),
-                        new org.opencv.core.Point( j, histImage.rows()-Math.round( histH.get(j,0)[0] )),
-                        new Scalar( 255, 255, 255),
-                        1, 8, 0 );
-        }
-    	return histImage;
+    	double bin;
+    	for(int i=0;i < 256;i++){
+    		bin = histN.get(i,0)[0]/153600;
+    		 histN.put(i,0, bin);
+    	}
+    	//System.out.println(histHN.dump());
+    	//System.out.println(sumaHist());
+    	return histN;
+    	
     }
     
     
-    public void setFrameNorm(Mat pFrameHNorm){
-    	matList.add(pFrameHNorm);
+    
+    public double sumaHist(){
+    	double suma =0;
+    	for(int i=0;i< 256;i++){
+    		suma += histN.get(i,0)[0];
+    	}
+    	return (suma);
+    }
+    
+    
+
+    
+    
+    public void setFrameNorm(Mat pframeHnorm){
+    	frameHNorm = pframeHnorm.clone();
+    	matList.add(pframeHnorm.clone());
     }
     
     
