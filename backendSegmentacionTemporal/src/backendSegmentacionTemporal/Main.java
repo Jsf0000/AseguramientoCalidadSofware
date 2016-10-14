@@ -97,7 +97,7 @@ public class Main {
         
         //-----------Algoritmo-3---------------------
         
-    	Video video = new Video();
+/*    	Video video = new Video();
     	Cut  cuts  =   new Cut();
     	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
     	video.setFrames();
@@ -105,7 +105,7 @@ public class Main {
     	video.getListFrames().elementAt(1).setNormHist();
     	System.out.println("Bhattacharyya: "+cuts.getBhattacharyya(video.getListFrames().elementAt(0).hist.normHist(), video.getListFrames().elementAt(1).hist.normHist()));
         System.out.println(cuts.getBhattacharyyaDistance(video.getListFrames().elementAt(0).hist.normHist(),video.getListFrames().elementAt(1).hist.normHist()));
-    	
+    	*/
     	
         //-----------Algoritmo-4-------------------------
         
@@ -119,7 +119,7 @@ public class Main {
 		
 		
 		//--------------Algoritmo--5----------------------------
-/*	  	Video video = new Video();
+	  	Video video = new Video();
     	Cut  cuts  =   new Cut();
     	
     	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
@@ -127,7 +127,8 @@ public class Main {
     	cuts.setArrayDissimilarity(video.getListFrames());
     	System.out.println(cuts.getArrayDissimilarity().toString());
     	cuts.calCuts();
-    	new GroundTruth(cuts.getCuts(),"src/GroundTruth.txt");*/
+    	
+    	new GroundTruth(cuts.getCuts(),"src/GroundTruth.txt",5);
     	
 		
 	 }

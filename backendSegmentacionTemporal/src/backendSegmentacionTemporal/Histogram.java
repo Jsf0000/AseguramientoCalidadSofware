@@ -32,16 +32,8 @@ public class Histogram {
         return histH;
     }
     
-/*    public Mat normHist(){
-    	createHist();
-    	System.out.println(histH.dump());
-       //Core.normalize(histH, histHN, 1, histImage.rows() , Core.NORM_MINMAX, -1, new Mat() ); 
-        Core.normalize(histH, histHN, 0,1 , Core.NORM_MINMAX, -1,new Mat() );  
-        System.out.println(sumaHist());
-        return histHN;
-    }*/
-    
-    
+
+       
     public Mat normHist(){
     	createHist();
     	double bin;
@@ -64,14 +56,10 @@ public class Histogram {
     	}
     	return (suma);
     }
-    
-    
-
-    
+      
     
     public void setFrameNorm(Mat pframeHnorm){
-    	frameHNorm = pframeHnorm.clone();
-    	matList.add(pframeHnorm.clone());
+    	matList.add(pframeHnorm);
     }
     
     

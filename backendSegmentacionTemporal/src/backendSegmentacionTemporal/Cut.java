@@ -63,7 +63,7 @@ public class Cut {
         	 for(int i=0;i < size;i++){
         		 suma += Math.pow((dissimilarity.get(i) - media),2);
         	 }
-        	 result = suma/size;
+        	 result = suma/(size);
         	 result = Math.sqrt(result);
         	 return result;
          }
@@ -71,12 +71,21 @@ public class Cut {
          public void calCuts(){
         	double DevMedia = mediaVec()+ dvStandar();
         	 for (int i=0;i<dissimilarity.size();i++){
-        		   if(dissimilarity.get(i) >= DevMedia && !cuts.contains(i)){
-        			   cuts.addElement(i+1);
-        			   cuts.addElement(i+2);
+        		   if(dissimilarity.get(i) >= DevMedia){
+        			   if (!cuts.contains(i))
+        			   {
+        				   cuts.addElement(i);
+        			   }
+        			   else if(!cuts.contains(i+1))
+        			   {
+        				   cuts.addElement(i+1);
+        			   }
         		   }
         	 }
-        	  new Makecsv(cuts);
+        	 //System.out.println(cuts.size());
+        	 //System.out.println(cuts.toString());
+        	 
+        	 new Makecsv(cuts);
        }
          
 }
