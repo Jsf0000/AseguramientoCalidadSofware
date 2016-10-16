@@ -1,4 +1,7 @@
-package backendSegmentacionTemporal;
+/*
+ * 
+ */
+package Model;
 
 
 
@@ -6,9 +9,16 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.opencv.core.Mat;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class VideoTest.
+ */
 @SuppressWarnings("deprecation")
 public class VideoTest {
 
+	/**
+	 * Test array dissimilarity.
+	 */
 	@SuppressWarnings("deprecation")
 	@Test
 	//prueba al cargar el video.
@@ -27,7 +37,7 @@ public class VideoTest {
 	}*/
 	
 	
-	public void bhattacharyya(){
+/*	public void bhattacharyya(){
 		Video video = new Video();
     	Cut  cuts  =   new Cut();
     	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
@@ -36,9 +46,21 @@ public class VideoTest {
     	video.getListFrames().elementAt(1).setNormHist();
     	Mat hist1 = video.getListFrames().elementAt(0).hist.normHist();
     	Mat hist2 = video.getListFrames().elementAt(1).hist.normHist();
-    	Assert.assertEquals(0.038132049890462594,cuts.getBhattacharyyaDistance(hist1, hist2),0.038132049890462594);
+    	Assert.assertEquals(0,cuts.getBhattacharyyaDistance(null, hist2),0);
 		
-	}
+	}*/
+	
+	
+	/*	public void bhattacharyya(){
+	Video video = new Video();
+	Cut  cuts  =   new Cut();
+	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
+	video.setFrames();
+	Mat hist1 = video.getListFrames().elementAt(0).hist.normHist();
+	Mat hist2 = video.getListFrames().elementAt(1).hist.normHist();
+	Assert.assertEquals(0,cuts.getBhattacharyyaDistance(null, hist2),0);
+	
+}*/
 	
 	
 	
@@ -63,14 +85,25 @@ public class VideoTest {
 }*/
 
 //prueba del arreglo de bhattacharyya
-public void arrayBhattacharyyaTest(){
+/*public void arrayBhattacharyyaTest(){
 	Video video = new Video();
 	Cut  cuts  =   new Cut();
 	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
 	video.setFrames();
 	cuts.setArrayDissimilarity(video.getListFrames());
 	System.out.println(cuts.getArrayDissimilarity().toString());
-}
+}*/
+	
+	public void testArrayDissimilarity()
+	{
+		Video video = new Video();
+		Cut  cuts  =   new Cut();
+		video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
+		video.setFrames();
+		cuts.setArrayDissimilarity(video.getListFrames());
+		Assert.assertEquals("Error en dissimilitud",cuts.sizeDissimilarity(),3682);
+
+	}
 	
 	
 	

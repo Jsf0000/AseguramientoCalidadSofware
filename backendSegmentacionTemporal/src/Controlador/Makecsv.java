@@ -1,27 +1,51 @@
-package backendSegmentacionTemporal;
+/*
+ * 
+ */
+package Controlador;
 
 import java.io.FileWriter;
 import java.util.Vector;
 
-    public class Makecsv {
+    // TODO: Auto-generated Javadoc
+/**
+     * The Class Makecsv.
+     * Realiza para guardar los cortes en Csv
+     */
+    public class Makecsv extends Observador{
 
 
-    private Vector<Integer> cutsFrames = new Vector<Integer>();
-	 
-    Makecsv(Vector<Integer> pcutsFrames){
-		 cutsFrames = pcutsFrames;
-		 writeCuts();
+
+	
+    
+    
+    /**
+     * Instantiates a new makecsv.
+     * 
+     * @param psubjeto the psubjeto
+     */
+    public Makecsv(Subjeto psubjeto){
+    	 this.subjeto = psubjeto;
+    	 this.subjeto.agregarObservador((Observador)this);
+		 //cutsFrames = pcutsFrames;
+		// writeCuts();
 	 }
 	 
 	 
-	 public void writeCuts()
+	 /**
+ 	 * Write cuts.
+ 	 *Escribe los cortes en un CSV
+ 	 * @param pdireccionC the pdireccion C
+ 	 * @param pcuts the pcuts
+ 	 * 
+ 	 */
+ 	public void writeCuts(String pdireccionC,Vector<Integer> pcuts)
 	 {
 		   try{
-		       FileWriter fileWriter = new FileWriter("src/Cortes.csv",true);       
+		       FileWriter fileWriter = new FileWriter(pdireccionC,true);       
 		       //Se agregan datos
 		       fileWriter.append("Cortes;");
-		       for(int i =0;i< cutsFrames.size();i++){
-		    	   fileWriter.append(cutsFrames.get(i)+";"+"\n");
+		       for(int i =0;i< pcuts.size();i++){
+		    	   fileWriter.append(pcuts.get(i)+";"+"\n");
 		       }
 		       
 		       // cierre del archivo
@@ -32,7 +56,18 @@ import java.util.Vector;
 			          System.out.println("Error en CSV");
 			      }
 		                       
-		      } 
+		      }
+
+
+	/* (non-Javadoc)
+	 * @see Controlador.Observador#update()
+	 * Actualiza los observadores
+	 */
+	@Override
+	public void update() {
+		Dto dto = this.subjeto.getDto();
+		writeCuts(dto.getDireccionC(),dto.getCut().getCuts());
+	} 
    
     
 	 

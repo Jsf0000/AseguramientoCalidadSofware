@@ -1,4 +1,7 @@
-package backendSegmentacionTemporal;
+/*
+ * 
+ */
+package Controlador;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
@@ -15,10 +18,23 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
+import Model.Cut;
+import Model.Video;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Main.
+ */
 public class Main {
 	
 	// retorna una imagen  tipo Imagecon entrada un tipo Mat
 
+	/**
+	 * Creates the awt image.
+	 *
+	 * @param mat the mat
+	 * @return the buffered image
+	 */
 	public static BufferedImage createAwtImage(Mat mat) {
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		System.loadLibrary("opencv_ffmpeg2412_64");
@@ -46,8 +62,12 @@ public class Main {
     
 
 	 /**
-	 * @param args
-	 */
+ 	 * The main method.
+ 	 *
+ 	 * @param args the arguments
+ 	 * @throws FileNotFoundException the file not found exception
+ 	 * @throws IOException Signals that an I/O exception has occurred.
+ 	 */
 	/**
 	 * @param args
 	 */
@@ -119,16 +139,19 @@ public class Main {
 		
 		
 		//--------------Algoritmo--5----------------------------
-	  	Video video = new Video();
-    	Cut  cuts  =   new Cut();
+	  	//Video video = new Video();
+    	//Cut  cuts  =   new Cut();
     	
-    	video.setVideo("C:/Proyecto1Lenguajes/Video.mp4");
-    	video.setFrames();
-    	cuts.setArrayDissimilarity(video.getListFrames());
-    	System.out.println(cuts.getArrayDissimilarity().toString());
-    	cuts.calCuts();
+    	//video.setVideo("C:/Proyecto1Lenguajes/Video.mp");
+    	//video.setFrames();
     	
-    	new GroundTruth(cuts.getCuts(),"src/GroundTruth.txt",5);
+    	
+    	Controlador c = new Controlador();
+    	c.showCuts("C:/Proyecto1Lenguajes/Video.mp4");
+    
+
+    	
+    	//new GroundTruth(cuts.getCuts(),"src/GroundTruth.txt",5);
     	
 		
 	 }

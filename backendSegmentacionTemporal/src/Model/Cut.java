@@ -1,36 +1,84 @@
-package backendSegmentacionTemporal;
+/*
+ * 
+ */
+package Model;
 
 import java.util.Vector;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
+import Controlador.Makecsv;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Cut.
+ */
 public class Cut {
 
+	/** The bhatta. */
 	private Bhattacharyya bhatta = new Bhattacharyya();
+    
+    /** The dissimilarity. */
     private Vector<Double> dissimilarity = new Vector<Double>();
+    
+    /** The cuts. */
     private Vector<Integer> cuts = new Vector<Integer>();
 
-    	public Vector<Integer> getCuts()
+    	/**
+	     * Gets the cuts.
+	     *
+	     * @return the cuts
+	     */
+	    public Vector<Integer> getCuts()
     	{
     		return cuts;
     	}
     	
-         public double getBhattacharyya(Mat hist1, Mat hist2)
+         /**
+          * Size dissimilarity.
+          *
+          * @return the int
+          */
+         public int sizeDissimilarity()
          {
-        	 double x = (Imgproc.compareHist(hist1, hist2, 3));
+        	 return dissimilarity.size();
+         }
+    	   	
+         /**
+          * Gets the bhattacharyya.
+          * calcula la distancia de bhattacharyya utilizando el metodo de la libreria de opencv
+          * @param phist1 the phist 1
+          * @param phist2 the phist 2
+          * @return the bhattacharyya
+          */
+         public double getBhattacharyya(Mat phist1, Mat phist2)
+         {
+        	 double x = (Imgproc.compareHist(phist1, phist2, 3));
         	 return x;
          }
          
-         public double getBhattacharyyaDistance(Mat hist1, Mat hist2){
-        	 if (hist1 == null || hist2 == null){
+         /**
+          * Gets the bhattacharyya distance.
+          * Calcula el metodo de bhattacharyya utilizadon la funcion programada manualmente
+          * @param phist1 the phist 1
+          * @param phist2 the phist 2
+          * @return the bhattacharyya distance
+          */
+         public double getBhattacharyyaDistance(Mat phist1, Mat phist2){
+        	 if (phist1 == null || phist2 == null){
         		 return 0;
         	 }
-        	 double result = bhatta.bhattacharyyaDistance(hist1, hist2);
+        	 double result = bhatta.bhattacharyyaDistance(phist1, phist2);
         	 return result;
          }
     
          
          
+         /**
+          * Sets the array dissimilarity.
+          * 
+          * @param pframes the new array dissimilarity
+          */
          public void setArrayDissimilarity( Vector<Frame> pframes){
         	 for(int i = 0; i+1 < pframes.size();i++){
         		 pframes.elementAt(i).setNormHist();
@@ -39,12 +87,22 @@ public class Cut {
         	 }
          }
          
+         /**
+          * Gets the array dissimilarity.
+          *
+          * @return the array dissimilarity
+          */
          public Vector<Double> getArrayDissimilarity()
          {
         	 return dissimilarity;
          }
          
            
+         /**
+          * Media vec.
+          * Calcula la media del arreglo de disimilitud
+          * @return the double
+          */
          public double mediaVec(){
         	 double suma = 0;
         	 int size = dissimilarity.size();
@@ -54,6 +112,11 @@ public class Cut {
         	 return suma/size;
          }
          
+         /**
+          * Dv standar.
+          * calcula la desviacion estandar del arreglo de disimilitud
+          * @return the double
+          */
          public double dvStandar()
          {
         	 double suma = 0;
@@ -68,6 +131,10 @@ public class Cut {
         	 return result;
          }
          
+         /**
+          * Cal cuts.
+          * calcula el numero de frames donde existen cortes y los guarda en el arreglo cuts
+          */
          public void calCuts(){
         	double DevMedia = mediaVec()+ dvStandar();
         	 for (int i=0;i<dissimilarity.size();i++){
@@ -82,10 +149,9 @@ public class Cut {
         			   }
         		   }
         	 }
-        	 //System.out.println(cuts.size());
-        	 //System.out.println(cuts.toString());
+        	 System.out.println(cuts.size());
+        	 System.out.println(cuts.toString());
         	 
-        	 new Makecsv(cuts);
        }
          
 }
