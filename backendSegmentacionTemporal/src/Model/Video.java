@@ -24,7 +24,7 @@ public class Video {
 	
 	/**
 	 * Sets the video.
-	 * 
+	 * Se verifica si el video se puede cargar
 	 * @param pdir the pdir
 	 * @return true, if successful
 	 */

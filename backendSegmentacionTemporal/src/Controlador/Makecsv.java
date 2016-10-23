@@ -33,7 +33,7 @@ import java.util.Vector;
 	 
 	 /**
  	 * Write cuts.
- 	 *Escribe los cortes en un CSV
+ 	 * Escribe los cortes en un CSV
  	 * @param pdireccionC the pdireccion C
  	 * @param pcuts the pcuts
  	 * 

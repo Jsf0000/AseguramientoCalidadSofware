@@ -17,19 +17,19 @@ public class Dto {
 	/** The direccion cortes. */
 	private String direccionCortes;
 	
-	/** The direccion gt. */
+	/** The direccion del archivo groundTruth. */
 	private String direccionGt;
 	
-	/** The delta. */
+	/** The delta utilizado en el groundtruth. */
 	private int delta;
 	
-	/** The cuts. */
+	/** The cuts objeto corte. */
 	private Cut cuts;
 	
 	
 	/**
 	 * Gets the direccion.
-	 *
+	 * 
 	 * @return the direccion
 	 */
 	public String getDireccion()
@@ -41,7 +41,7 @@ public class Dto {
 	
 	/**
 	 * Gets the direccion C.
-	 *
+	 * 
 	 * @return the direccion C
 	 */
 	public String getDireccionC()
@@ -51,7 +51,7 @@ public class Dto {
 	
 	/**
 	 * Gets the delta.
-	 *
+	 * 
 	 * @return the delta
 	 */
 	public int getDelta()

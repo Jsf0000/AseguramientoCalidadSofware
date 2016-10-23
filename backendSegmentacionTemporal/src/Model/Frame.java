@@ -50,7 +50,7 @@ public class Frame {
     
     /**
      * Gets the frame H norm.
-     *
+     * obtiene la capa H normalizada
      * @return the frame H norm
      */
     public Mat getFrameHNorm(){

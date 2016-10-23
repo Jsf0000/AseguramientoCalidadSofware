@@ -38,7 +38,7 @@ public class Bhattacharyya {
          
         /**
          * Media.
-         * calcula la media del diagrama de disimilitud
+         * calcula la media de un histograma
          * @param phist1 the phist 1
          * @return the double
          */

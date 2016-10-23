@@ -11,21 +11,40 @@ import org.opencv.core.MatOfInt;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
+//TODO: Auto-generated Javadoc
+
+
+/**
+ * The Class Histogram.
+ */
 public class Histogram {
+    
+    /** The histograma normal. */
     private Mat histH      = new Mat();
+    
+    /** The histograma normalizado. */
     private Mat histN      = new Mat();
+    
+    /** The frame H norm. */
     private Mat frameHNorm  = new Mat();
    
+    /** The mat list. */
     private ArrayList <Mat> matList = new ArrayList <Mat>();
-    //private MatOfFloat range =new MatOfFloat(0f,256f);
-    //private MatOfInt histSize = new MatOfInt(255);
+    
+    /** The ranges del los histogramas. */
     MatOfFloat ranges =  new MatOfFloat(0f,256f );
 
+    /** The hist size. */
     MatOfInt histSize = new MatOfInt(256);
   
 
 
     
+    /**
+     * Creates the hist.
+     *
+     * @return the mat
+     */
     public Mat createHist(){
     	Imgproc.calcHist(matList,new MatOfInt(0), new Mat(), histH, histSize, ranges,false);
     	histN = histH.clone();
@@ -34,6 +53,11 @@ public class Histogram {
     
 
        
+    /**
+     * Norm hist.
+     * Normaliza un histograma
+     * @return the mat
+     */
     public Mat normHist(){
     	createHist();
     	double bin;
@@ -47,6 +71,11 @@ public class Histogram {
     
     
     
+    /**
+     * Suma hist.
+     * suma total del contenido de los histograma, para verificar si esta normalizado
+     * @return the double
+     */
     public double sumaHist(){
     	double suma =0;
     	for(int i=0;i< 256;i++){
@@ -56,6 +85,11 @@ public class Histogram {
     }
       
     
+    /**
+     * Sets the frame norm.
+     *
+     * @param pframeHnorm the new frame norm
+     */
     public void setFrameNorm(Mat pframeHnorm){
     	matList.add(pframeHnorm);
     }
