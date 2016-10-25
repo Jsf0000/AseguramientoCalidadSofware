@@ -25,6 +25,7 @@ public class Video {
 	/**
 	 * Sets the video.
 	 * Se verifica si el video se puede cargar
+	 * Seccion especificada en el proyecto seccion 2.2
 	 * @param pdir the pdir
 	 * @return true, if successful
 	 */

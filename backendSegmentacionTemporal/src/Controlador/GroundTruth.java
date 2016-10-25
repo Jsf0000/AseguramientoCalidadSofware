@@ -44,8 +44,8 @@ public class GroundTruth extends Observador{
 	
     /**
      * Cargar contenido.
-     *Carga los cortes de los frames sennalados manualmente
-     * @param parchivo the parchivo
+     * Carga los cortes de los frames sennalados manualmente
+     * @param parchivo the parchivo, se espera una direccion de archivo validad
      * @throws FileNotFoundException the file not found exception
      * @throws IOException Signals that an I/O exception has occurred.
      */
@@ -67,7 +67,7 @@ public class GroundTruth extends Observador{
     /**
      * Make ground truth.
      * Realiza el groundTruth calculando los falsos pasitivos y negativos.
-     * @param pcuts the pcuts
+     * @param pcuts the pcuts , espera los cortes realizados y un delta de 15 a 5 
      * @param pdelta the pdelta
      */
     public void makeGroundTruth(Vector<Integer> pcuts, int pdelta){
