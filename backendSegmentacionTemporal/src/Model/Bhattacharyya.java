@@ -13,7 +13,7 @@ public class Bhattacharyya {
 	
 	 /**
  	 * Bhattacharyya distance.
- 	 *
+ 	 * Esta formula se encuentra presente la especificacion del proyecto seccion 2.3
  	 * @param phist1 the phist 1
  	 * @param phist2 the phist 2
  	 * @return the double

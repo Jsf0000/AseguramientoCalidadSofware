@@ -59,6 +59,7 @@ public class Frame {
     
     /**
      * Convert hsv.
+     * Procedimiento citado en la especificacion del proyecto seccion 2.1
      * Conviete una imagen en HSV
      * @return the mat
      */
@@ -80,6 +81,7 @@ public class Frame {
 	
     /**
      * Normalize H.
+     * Procedimiento citado en la especificacion del proyecto seccion 2.1
      * Normaliza la capa H del HSV
      * @return the mat
      */

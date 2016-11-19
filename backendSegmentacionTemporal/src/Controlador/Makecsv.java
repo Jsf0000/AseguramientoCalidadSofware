@@ -15,8 +15,12 @@ import java.util.Vector;
 
 
 
-	
-    
+      
+    /**
+     * Instantiates a new makecsv.
+     * 
+     */  
+	public Makecsv(){}
     
     /**
      * Instantiates a new makecsv.

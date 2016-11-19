@@ -39,7 +39,7 @@ public class Cut {
           *
           * @return the int
           */
-         public int sizeDissimilarity()
+         public int Dissimilaritysize()
          {
         	 return dissimilarity.size();
          }
@@ -76,7 +76,7 @@ public class Cut {
          
          /**
           * Sets the array dissimilarity.
-          * 
+          * Procedimiento citado en la especificacion del proyecto seccion 2.4
           * @param pframes the new array dissimilarity
           */
          public void setArrayDissimilarity( Vector<Frame> pframes){
@@ -133,6 +133,7 @@ public class Cut {
          
          /**
           * Cal cuts.
+          * Procedimiento citado en la especificacion del proyecto seccion 2.5
           * calcula el numero de frames donde existen cortes y los guarda en el arreglo cuts
           */
          public void calCuts(){
@@ -149,8 +150,8 @@ public class Cut {
         			   }
         		   }
         	 }
-        	 System.out.println(cuts.size());
-        	 System.out.println(cuts.toString());
+        	 //System.out.println(cuts.size());
+        	 //System.out.println(cuts.toString());
         	 
        }
          

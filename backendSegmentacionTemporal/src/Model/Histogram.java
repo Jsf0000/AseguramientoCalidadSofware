@@ -42,7 +42,7 @@ public class Histogram {
     
     /**
      * Creates the hist.
-     *
+     * Procedimiento citado en la especificacion del proyecto seccion 2.2
      * @return the mat
      */
     public Mat createHist(){
@@ -55,6 +55,7 @@ public class Histogram {
        
     /**
      * Norm hist.
+     * Seccion especificada en el proyecto seccion 2.2
      * Normaliza un histograma
      * @return the mat
      */
